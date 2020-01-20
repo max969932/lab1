@@ -26,13 +26,17 @@ namespace PageObject.Driver
             {
                 switch (TestContext.Parameters.Get("browser"))
                 {
-                    case "Chrome":
+                    //case "Chrome":
+                    //    new DriverManager().SetUpDriver(new ChromeConfig());
+                    //    Driver = new ChromeDriver();
+                    //    break;
+                    //default:
+                    //    new DriverManager().SetUpDriver(new OperaConfig());
+                    //    Driver = new OperaDriver();
+                    //    break;
+                    default:
                         new DriverManager().SetUpDriver(new ChromeConfig());
                         Driver = new ChromeDriver();
-                        break;
-                    default:
-                        new DriverManager().SetUpDriver(new OperaConfig());
-                        Driver = new OperaDriver();
                         break;
                 }
                 Driver.Manage().Window.Maximize();
