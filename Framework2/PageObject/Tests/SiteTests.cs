@@ -72,26 +72,26 @@ namespace PageObject
         //    Assert.AreEqual(expectedErrorMessage, page.getErrorMessage());
         //}
 
-        //[Test]
-        //public void OpenSearchResultPage()
-        //{
-        //    #region TestData
-        //    string searchResultsPageUrl = "https://gd.tickets.ua/en/search/results";
-        //    #endregion
+        [Test]
+        public void OpenSearchResultPage()
+        {
+            #region TestData
+            string searchResultsPageUrl = "https://gd.tickets.ua/en/search/results";
+            #endregion
 
-        //    Route route = RouteCreator.WithAllProperties();
-        //    GdTicketsHomePage page = new GdTicketsHomePage();
+            Route route = RouteCreator.WithAllProperties();
+            GdTicketsHomePage page = new GdTicketsHomePage();
 
-        //    SearchResultsPage searchResultsPage=
-        //    page
-        //        .FillFieldDeparture(route)
-        //        .FillFieldArrive(route)
-        //        .OpenDepartCalendar()
-        //        .ChoiceDepartureDate(route)
-        //        .GoToSearchResult();
-        //    bool pageIsResultsPage = searchResultsPage.GetUrl().Contains(searchResultsPageUrl);
-        //    Assert.IsTrue(pageIsResultsPage);
-        //}
+            SearchResultsPage searchResultsPage =
+            page
+                .FillFieldDeparture(route)
+                .FillFieldArrive(route)
+                .OpenDepartCalendar()
+                .ChoiceDepartureDate(route)
+                .GoToSearchResult();
+            bool pageIsResultsPage = searchResultsPage.GetUrl().Contains(searchResultsPageUrl);
+            Assert.IsTrue(pageIsResultsPage);
+        }
 
         //[Test]
         //public void CheckCorrectnessRoute()
