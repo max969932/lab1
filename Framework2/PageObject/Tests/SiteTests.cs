@@ -52,115 +52,115 @@ namespace PageObject
         //-нажать "найти"
         //
         //*ожидаемый результат: вывод сообщения - 'This field is mandatory'
-        [Test]
-        public void FindTicketWithYeasterdayDate()
-        {
-            #region TestData
-            const string expectedErrorMessage = "This field is mandatory";
-            #endregion
+        //[Test]
+        //public void FindTicketWithYeasterdayDate()
+        //{
+        //    #region TestData
+        //    const string expectedErrorMessage = "This field is mandatory";
+        //    #endregion
 
-            Route route = RouteCreator.WithAllProperties();
-            GdTicketsHomePage page = new GdTicketsHomePage();
+        //    Route route = RouteCreator.WithAllProperties();
+        //    GdTicketsHomePage page = new GdTicketsHomePage();
 
-            page
-                .FillFieldDeparture(route)
-                .FillFieldArrive(route)
-                .OpenDepartCalendar()
-                .ChoiceYesterdayDepartureDate(route)
-                .SearchClick();
+        //    page
+        //        .FillFieldDeparture(route)
+        //        .FillFieldArrive(route)
+        //        .OpenDepartCalendar()
+        //        .ChoiceYesterdayDepartureDate(route)
+        //        .SearchClick();
 
-            Assert.AreEqual(expectedErrorMessage, page.getErrorMessage());
-        }
+        //    Assert.AreEqual(expectedErrorMessage, page.getErrorMessage());
+        //}
 
-        [Test]
-        public void OpenSearchResultPage()
-        {
-            #region TestData
-            string searchResultsPageUrl = "https://gd.tickets.ua/en/search/results";
-            #endregion
+        //[Test]
+        //public void OpenSearchResultPage()
+        //{
+        //    #region TestData
+        //    string searchResultsPageUrl = "https://gd.tickets.ua/en/search/results";
+        //    #endregion
 
-            Route route = RouteCreator.WithAllProperties();
-            GdTicketsHomePage page = new GdTicketsHomePage();
+        //    Route route = RouteCreator.WithAllProperties();
+        //    GdTicketsHomePage page = new GdTicketsHomePage();
 
-            SearchResultsPage searchResultsPage=
-            page
-                .FillFieldDeparture(route)
-                .FillFieldArrive(route)
-                .OpenDepartCalendar()
-                .ChoiceDepartureDate(route)
-                .GoToSearchResult();
-            bool pageIsResultsPage = searchResultsPage.GetUrl().Contains(searchResultsPageUrl);
-            Assert.IsTrue(pageIsResultsPage);
-        }
+        //    SearchResultsPage searchResultsPage=
+        //    page
+        //        .FillFieldDeparture(route)
+        //        .FillFieldArrive(route)
+        //        .OpenDepartCalendar()
+        //        .ChoiceDepartureDate(route)
+        //        .GoToSearchResult();
+        //    bool pageIsResultsPage = searchResultsPage.GetUrl().Contains(searchResultsPageUrl);
+        //    Assert.IsTrue(pageIsResultsPage);
+        //}
 
-        [Test]
-        public void CheckCorrectnessRoute()
-        {
-            Route route = RouteCreator.WithAllProperties();
-            GdTicketsHomePage gdTicketsHomePage = new GdTicketsHomePage();
+        //[Test]
+        //public void CheckCorrectnessRoute()
+        //{
+        //    Route route = RouteCreator.WithAllProperties();
+        //    GdTicketsHomePage gdTicketsHomePage = new GdTicketsHomePage();
 
-            SearchResultsPage searchResultsPage = gdTicketsHomePage
-                .FillFieldDeparture(route)
-                .FillFieldArrive(route)
-                .OpenDepartCalendar()
-                .ChoiceDepartureDate(route)
-                .GoToSearchResult();
+        //    SearchResultsPage searchResultsPage = gdTicketsHomePage
+        //        .FillFieldDeparture(route)
+        //        .FillFieldArrive(route)
+        //        .OpenDepartCalendar()
+        //        .ChoiceDepartureDate(route)
+        //        .GoToSearchResult();
 
-            string trip = route.DepartureCity + "-" + route.ArrivalCity;
+        //    string trip = route.DepartureCity + "-" + route.ArrivalCity;
 
-            bool pageIsResultsPage = searchResultsPage.GetTrip().Contains(trip);
+        //    bool pageIsResultsPage = searchResultsPage.GetTrip().Contains(trip);
 
 
-            Assert.IsTrue(pageIsResultsPage);
-        }
+        //    Assert.IsTrue(pageIsResultsPage);
+        //}
 
-        [Test]
-        public void RouteHaveSeats()
-        {
-            #region TestData
-            string numSeat = "45";
-            bool hasSeats;
-            #endregion
-            Route route = RouteCreator.WithAllProperties();
-            GdTicketsHomePage gdTicketsHomePage = new GdTicketsHomePage();
+        //[Test]
+        //public void RouteHaveSeats()
+        //{
+        //    #region TestData
+        //    string numSeat = "45";
+        //    bool hasSeats;
+        //    #endregion
+        //    Route route = RouteCreator.WithAllProperties();
+        //    GdTicketsHomePage gdTicketsHomePage = new GdTicketsHomePage();
 
-            SearchResultsPage searchResultsPage = gdTicketsHomePage
-                .FillFieldDeparture(route)
-                .FillFieldArrive(route)
-                .OpenDepartCalendar()
-                .ChoiceDepartureDate(route)
-                .GoToSearchResult();
+        //    SearchResultsPage searchResultsPage = gdTicketsHomePage
+        //        .FillFieldDeparture(route)
+        //        .FillFieldArrive(route)
+        //        .OpenDepartCalendar()
+        //        .ChoiceDepartureDate(route)
+        //        .GoToSearchResult();
 
-            searchResultsPage.ChoiceFirstTrain();
+        //    searchResultsPage.ChoiceFirstTrain();
 
-            int number = int.Parse(searchResultsPage.GetNumberFreeSeats());
-            if (number > 0) hasSeats = true;
-            else hasSeats = false;
+        //    int number = int.Parse(searchResultsPage.GetNumberFreeSeats());
+        //    if (number > 0) hasSeats = true;
+        //    else hasSeats = false;
 
-            Assert.IsTrue(hasSeats);
-        }
+        //    Assert.IsTrue(hasSeats);
+        //}
 
-        [Test]
-        public void BuyChildrenTicketIfAdult()
-        {
-            #region TestData
-            string error = "Please specify a valid date in the format DD/MM/YYYY";
-            Route route = RouteCreator.WithAllProperties();
-            User user = UserCreator.WithAllProperties();
-            #endregion
+        //[Test]
+        //public void BuyChildrenTicketIfAdult()
+        //{
+        //    #region TestData
+        //    string error = "Please specify a valid date in the format DD/MM/YYYY";
+        //    Route route = RouteCreator.WithAllProperties();
+        //    User user = UserCreator.WithAllProperties();
+        //    #endregion
 
-            GdTicketsHomePage gdTicketsHomePage = new GdTicketsHomePage();
+        //    GdTicketsHomePage gdTicketsHomePage = new GdTicketsHomePage();
 
-            SearchResultsPage searchResultsPage = gdTicketsHomePage
-                .FillFieldDeparture(route)
-                .FillFieldArrive(route)
-                .OpenDepartCalendar()
-                .ChoiceDepartureDate(route)
-                .GoToSearchResult()
-                .ChoiceFirstTrain()
-                .ChoiceChildTo14YearsAndWriteData(user);
+        //    SearchResultsPage searchResultsPage = gdTicketsHomePage
+        //        .FillFieldDeparture(route)
+        //        .FillFieldArrive(route)
+        //        .OpenDepartCalendar()
+        //        .ChoiceDepartureDate(route)
+        //        .GoToSearchResult()
+        //        .ChoiceFirstTrain()
+        //        .ChoiceChildTo14YearsAndWriteData(user);
 
-            Assert.AreEqual(error, searchResultsPage.GetDateError());
-        }
+        //    Assert.AreEqual(error, searchResultsPage.GetDateError());
+        //}
     }
 }
