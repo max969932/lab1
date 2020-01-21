@@ -30,14 +30,14 @@ namespace PageObject.Driver
                     //    new DriverManager().SetUpDriver(new ChromeConfig());
                     //    Driver = new ChromeDriver();
                     //    break;
+                    //default:
+                    //    new DriverManager().SetUpDriver(new OperaConfig());
+                    //    Driver = new OperaDriver();
+                    //    break;
                     default:
-                        new DriverManager().SetUpDriver(new OperaConfig());
-                        Driver = new OperaDriver();
+                        new DriverManager().SetUpDriver(new ChromeConfig());
+                        Driver = new ChromeDriver();
                         break;
-                        //default:
-                        //    new DriverManager().SetUpDriver(new ChromeConfig());
-                        //    Driver = new ChromeDriver();
-                        //    break;
                 }
                 Driver.Manage().Window.Maximize();
                 Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
