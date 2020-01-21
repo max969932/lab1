@@ -72,7 +72,7 @@ namespace PageObject
         {
             arriveCityButton.Click();
             arriveCityField.SendKeys(route.ArrivalCity);
-            IWebElement _arriveCity = GetWebElement($"//a[contains(text(),'{route.ArrivalCity}')]");
+            IWebElement _arriveCity = GetWebElement("//a[contains(text(),'Kharkov')]");
 
             _arriveCity.Click();
             return this;
