@@ -115,31 +115,31 @@ namespace PageObject
             //Assert.AreEqual(true, pageIsResultsPage);
         }
 
-        //[Test]
-        //public void RouteHaveSeats()
-        //{
-        //    #region TestData
-        //    string numSeat = "45";
-        //    bool hasSeats;
-        //    #endregion
-        //    Route route = RouteCreator.WithAllProperties();
-        //    GdTicketsHomePage gdTicketsHomePage = new GdTicketsHomePage();
+        [Test]
+        public void RouteHaveSeats()
+        {
+            #region TestData
+            string numSeat = "45";
+            bool hasSeats;
+            #endregion
+            Route route = RouteCreator.WithAllProperties();
+            GdTicketsHomePage gdTicketsHomePage = new GdTicketsHomePage();
 
-        //    SearchResultsPage searchResultsPage = gdTicketsHomePage
-        //        .FillFieldDeparture(route)
-        //        .FillFieldArrive(route)
-        //        .OpenDepartCalendar()
-        //        .ChoiceDepartureDate(route)
-        //        .GoToSearchResult();
+            SearchResultsPage searchResultsPage = gdTicketsHomePage
+                .FillFieldDeparture(route)
+                .FillFieldArrive(route)
+                .OpenDepartCalendar()
+                .ChoiceDepartureDate(route)
+                .GoToSearchResult();
 
-        //    searchResultsPage.ChoiceFirstTrain();
+            searchResultsPage.ChoiceFirstTrain();
 
-        //    int number = int.Parse(searchResultsPage.GetNumberFreeSeats());
-        //    if (number > 0) hasSeats = true;
-        //    else hasSeats = false;
+            int number = int.Parse(searchResultsPage.GetNumberFreeSeats());
+            if (number > 0) hasSeats = true;
+            else hasSeats = false;
 
-        //    Assert.IsTrue(hasSeats);
-        //}
+            Assert.IsTrue(hasSeats);
+        }
 
         //[Test]
         //public void BuyChildrenTicketIfAdult()
