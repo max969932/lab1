@@ -112,7 +112,6 @@ namespace PageObject
 
 
             Assert.IsTrue(pageIsResultsPage);
-            //Assert.AreEqual(true, pageIsResultsPage);
         }
 
         [Test]
