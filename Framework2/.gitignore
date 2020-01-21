@@ -1,7 +1,11 @@
 /.vs
 /Opera
+/Chrome
 /packages
 /Screenshots
 /TestResults
 /PageObject/bin
 /PageObject/obj
+/PageObject/Screenshots
+/PageObject/Chrome
+/PageObject/Opera

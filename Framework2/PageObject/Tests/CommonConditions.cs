@@ -28,7 +28,7 @@ namespace PageObject.Tests
         {
             if (TestContext.CurrentContext.Result.Outcome != ResultState.Success)
             {
-                ScreenshotCreater.SaveScreenShot(webDriver);
+                ScreenshotCreater.SaveScreenShot(DriverSingleton.GetDriver());
             }
 
             DriverSingleton.CloseDriver();
