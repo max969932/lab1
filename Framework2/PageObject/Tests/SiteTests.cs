@@ -133,35 +133,35 @@ namespace PageObject
                 .GoToSearchResult();
 
             searchResultsPage.ChoiceFirstTrain();
-
-            int number = int.Parse(searchResultsPage.GetNumberFreeSeats());
+            string strNumber = searchResultsPage.GetNumberFreeSeats();
+            int number = int.Parse(strNumber);
             if (number > 0) hasSeats = true;
             else hasSeats = false;
 
             Assert.IsTrue(hasSeats);
         }
 
-        //[Test]
-        //public void BuyChildrenTicketIfAdult()
-        //{
-        //    #region TestData
-        //    string error = "Please specify a valid date in the format DD/MM/YYYY";
-        //    Route route = RouteCreator.WithAllProperties();
-        //    User user = UserCreator.WithAllProperties();
-        //    #endregion
+        [Test]
+        public void BuyChildrenTicketIfAdult()
+        {
+            #region TestData
+            string error = "Please specify a valid date in the format DD/MM/YYYY";
+            Route route = RouteCreator.WithAllProperties();
+            User user = UserCreator.WithAllProperties();
+            #endregion
 
-        //    GdTicketsHomePage gdTicketsHomePage = new GdTicketsHomePage();
+            GdTicketsHomePage gdTicketsHomePage = new GdTicketsHomePage();
 
-        //    SearchResultsPage searchResultsPage = gdTicketsHomePage
-        //        .FillFieldDeparture(route)
-        //        .FillFieldArrive(route)
-        //        .OpenDepartCalendar()
-        //        .ChoiceDepartureDate(route)
-        //        .GoToSearchResult()
-        //        .ChoiceFirstTrain()
-        //        .ChoiceChildTo14YearsAndWriteData(user);
+            SearchResultsPage searchResultsPage = gdTicketsHomePage
+                .FillFieldDeparture(route)
+                .FillFieldArrive(route)
+                .OpenDepartCalendar()
+                .ChoiceDepartureDate(route)
+                .GoToSearchResult()
+                .ChoiceFirstTrain()
+                .ChoiceChildTo14YearsAndWriteData(user);
 
-        //    Assert.AreEqual(error, searchResultsPage.GetDateError());
-        //}
+            Assert.AreEqual(error, searchResultsPage.GetDateError());
+        }
     }
 }

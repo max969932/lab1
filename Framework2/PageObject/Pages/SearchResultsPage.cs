@@ -24,7 +24,7 @@ namespace PageObject.Pages
         [FindsBy(How = How.XPath, Using = "//div[@data-auto-controller='RailWayTrainController']")]
         IWebElement railWayTrain;
 
-        [FindsBy(How = How.TagName, Using = "g")]
+        [FindsBy(How = How.XPath, Using = "//div[@class='train-info-text row']")]
         IList<IWebElement> freeSeats;
 
         [FindsBy(How = How.XPath, Using = "//label[@for='passenger[9][type][kid]' and class='label label--form-radio-icon kid']")]
@@ -70,11 +70,9 @@ namespace PageObject.Pages
 
         public string GetNumberFreeSeats()
         {
-            string numberSeats;
+            IWebElement numSeats = freeSeats[0].FindElement(By.XPath("//span[@class='js-train-scheme-seats']"));
 
-            freeSeats[0].Click();
-            numberSeats = freeSeats[0].Text;
-            return numberSeats;
+            return numSeats.Text;
         }
 
         public SearchResultsPage ChoiceChildTo14YearsAndWriteData(User user)
